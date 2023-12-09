@@ -1,0 +1,40 @@
+﻿@page "/"
+@inject IConfiguration Config
+
+<PageTitle>Home</PageTitle>
+
+<h1>Fabien Dumont</h1>
+
+<p>
+    Hello and welcome to my web app, I am Fabien Dumont, a 26-year-old full-stack developer from Tulle, France.
+    I've been into tech and coding since I was a teenager.
+</p>
+
+<p>
+    In 2020, I got my master's degree in software development from the University of Poitiers in France.
+    I'm good at using C#, WPF, and Blazor in the .NET world. I'm also familiar with Git, Jira, and Oracle Databases,
+    which helps me take a well-rounded approach to software development.
+</p>
+
+<p>
+    Besides coding, I enjoy playing the drums as a way of expressing myself. I also like reading history books
+    because understanding the past helps us see the present and future more clearly.
+</p>
+
+<p>
+    When I'm not working, you might find me at the gym lifting weights or watching movies and cheering for my
+    favorite sports teams on TV.
+</p>
+
+<p class="h4">
+    Default Connection String: @defaultConnection
+</p>
+
+@code {
+    private string defaultConnection = "";
+
+    protected override void OnInitialized() {
+        defaultConnection = Config.GetConnectionString("Default") ?? "unknown";
+    }
+
+}
